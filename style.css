@@ -1,0 +1,148 @@
+/* Configurações Globais */
+:root {
+    --navy: #0E1A26;
+    --gold: #B89C63;
+    --champagne: #D4B77A;
+    --off-white: #EDE6D8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Faz a rolagem suave que você pediu */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--navy);
+    color: var(--off-white);
+    line-height: 1.6;
+}
+
+/* Menu de Navegação */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(14, 26, 38, 0.95);
+    z-index: 1000;
+    border-bottom: 1px solid var(--gold);
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+#navbar ul li a {
+    color: var(--off-white);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#navbar ul li a:hover {
+    color: var(--gold);
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--navy) !important;
+}
+
+/* Seções */
+.section {
+    min-height: 100vh;
+    padding: 100px 10% 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Hero Section (Sua Foto e Frase) */
+#home {
+    background: linear-gradient(to right, #0e1a26, #162a3d);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--champagne);
+    margin-bottom: 20px;
+}
+
+.hero-image img {
+    width: 400px;
+    border-radius: 20px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 20px rgba(184, 156, 99, 0.3);
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .section { flex-direction: column; text-align: center; }
+    .hero-image img { width: 100%; margin-top: 50px; }
+}
+
+/* Seção de Prêmios (Faixa de Autoridade) */
+#premios {
+    background-color: var(--off-white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+#premios h3 {
+    color: var(--navy);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    filter: grayscale(100%); /* Deixa os logos cinzas para um ar mais elegante */
+    transition: 0.5s;
+}
+
+.logos-grid img {
+    height: 60px;
+    opacity: 0.7;
+}
+
+.logos-grid:hover {
+    filter: grayscale(0%); /* Mostra as cores originais ao passar o mouse */
+}
+
+/* Seção Fundador */
+#fundador {
+    background-color: var(--navy);
+    border-top: 1px solid rgba(184, 156, 99, 0.2);
+}
+
+.fundador-texto h2 {
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+blockquote {
+    border-left: 4px solid var(--gold);
+    padding-left: 20px;
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--champagne);
+}
