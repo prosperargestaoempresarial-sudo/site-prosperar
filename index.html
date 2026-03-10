@@ -3,52 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prosperar BPO Financeiro</title>
+    <title>Prosperar BPO Financeiro | Liderança e Estratégia</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <nav id="navbar">
-        <div class="logo">PROSPERAR</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#cliente" class="btn-gold">Área do Cliente</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="section">
-        <div class="hero-content">
-            <h1>Liderança e Estratégia Financeira</h1>
-            <p>Transformando a gestão do seu negócio com precisão.</p>
+<nav style="position: fixed; top: 0; width: 100%; height: 75px; z-index: 1000; background: rgba(14, 26, 38, 0.55); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 183, 122, 0.15); display: flex; align-items: center;">
+    
+    <div style="max-width: 1000px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px;">
+        
+        <div style="height: 75px; display: flex; align-items: center; overflow: visible;">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/P%20de%20prosperar%20(1).svg" 
+                 alt="Prosperar BPO"
+                 style="height: 200px; width: auto; margin-top: -15px;">
         </div>
-        <div class="hero-image">
-            <img src="sua-foto.jpg" alt="Fundador Prosperar">
+
+        <div style="display: flex; gap: 30px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+            <a href="#home" style="color: #EDE6D8; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#D4B77A'" onmouseout="this.style.color='#EDE6D8'">Home</a>
+            <a href="#servicos" style="color: #EDE6D8; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#D4B77A'" onmouseout="this.style.color='#EDE6D8'">Soluções</a>
+            <a href="#parceiros" style="color: #EDE6D8; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#D4B77A'" onmouseout="this.style.color='#EDE6D8'">Ecossistema</a>
+            <a href="#insights" style="color: #EDE6D8; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#D4B77A'" onmouseout="this.style.color='#EDE6D8'">Insights</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="https://www.linkedin.com/company/prosperar-bpo-financeiro" target="_blank" title="LinkedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" style="height: 18px; filter: brightness(1);">
+            </a>
+            <a href="https://www.instagram.com/prosperar_bpo_financeiro/" target="_blank" title="Instagram">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" style="height: 18px; filter: brightness(1);">
+            </a>
+            <a href="https://www.youtube.com/@ProsperarBPOFinanceiro-i8h" target="_blank" title="YouTube">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="height: 18px; filter: brightness(1);">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .nav-link { color: #EDE6D8; text-decoration: none; transition: 0.3s; }
+    .nav-link:hover { color: #D4B77A; }
+</style>
+
+<section id="home" style="height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0E1A26;">
+    
+    <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%); opacity: 0.15; z-index: 1;">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-business-people-shaking-hands-in-a-meeting-41150-large.mp4" type="video/mp4">
+    </video>
+
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 0%, #0E1A26 85%); z-index: 2;"></div>
+
+    <div style="position: relative; z-index: 3; max-width: 900px; text-align: center; padding: 0 20px;">
+        <span style="color: #D4B77A; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: bold; display: block; margin-bottom: 20px;">Gestão de Alta Performance</span>
+        
+        <h1 style="color: #EDE6D8; font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px;">
+            A inteligência financeira que sua <span style="color: #D4B77A;">empresa precisa para escalar.</span>
+        </h1>
+        
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <a href="#solucoes" style="background: #D4B77A; color: #0E1A26; padding: 18px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem;">NOSSAS SOLUÇÕES</a>
+            <a href="#contato" style="border: 1px solid #D4B77A; color: #D4B77A; padding: 18px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem;">CONSULTORIA DIAGNÓSTICA</a>
+        </div>
+    </div>
+</section>
+
+    <section id="fundador" class="section">
+        <div class="fundador-texto">
+            <span class="tag-gold">O Líder por trás da visão</span>
+            <h2>A Estratégia por trás da Prosperar</h2>
+            <p>Como fundador, entendo que a gestão financeira é o coração pulsante de qualquer empresa. Meu objetivo é transformar dados em decisões inteligentes.</p>
+            
+            <div class="fundador-infos">
+                <div class="info-item">
+                    <strong>+10 anos</strong>
+                    <span>de experiência</span>
+                </div>
+                <div class="info-item">
+                    <strong>Premium</strong>
+                    <span>Atendimento BPO</span>
+                </div>
+            </div>
+            <blockquote>"Sua gestão financeira deve ser o motor, não o freio do seu negócio."</blockquote>
+        </div>
+        <div class="fundador-foto">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Estudio%203.jpg" alt="Deividi Zimmer">
         </div>
     </section>
 
-    <section id="premios">
-    <div class="premios-container">
-        <h3>Reconhecimento Internacional</h3>
-        <div class="logos-grid">
-            <img src="worldwide-finance.png" alt="Worldwide Finance Awards">
-            <img src="global-recognition.png" alt="Global Recognition Award">
+    <section id="servicos" class="section-servicos">
+        <div class="header-servicos">
+            <span class="tag-gold">Nossa Expertise</span>
+            <h2>Soluções Estratégicas</h2>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+                <div class="icon-gold">📊</div>
+                <h3>BPO Financeiro</h3>
+                <p>Gestão completa de contas a pagar, receber e fluxo de caixa.</p>
             </div>
+            <div class="card">
+                <div class="icon-gold">⚖️</div>
+                <h3>Reestruturação</h3>
+                <p>Negociação estratégica para recuperar o fôlego financeiro.</p>
+            </div>
+            <div class="card">
+                <div class="icon-gold">🤖</div>
+                <h3>Auditoria IA</h3>
+                <p>Inteligência artificial para antecipar falhas e identificar lucros.</p>
+            </div>
+            <div class="card card-erp">
+                <div class="icon-gold">💻</div>
+                <h3>Plataforma ERP</h3>
+                <p>Sua gestão em nuvem, integrada e segura para decisões em tempo real.</p>
+                <a href="https://prosperar-financial-hub.lovable.app/login" target="_blank" class="btn-erp-login">Acessar Login <i class="fas fa-sign-in-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+<section id="parceiros" class="section-parceiros" style="background-color: #EDE6D8; padding: 80px 0; overflow: hidden;">
+    <div class="header-servicos" style="text-align: center; margin-bottom: 50px;">
+        <h2 style="color: #0E1A26; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Parceiros e Clientes</h2>
+        <p style="color: #0E1A26; opacity: 0.8;">Empresas que confiam na nossa estratégia financeira.</p>
+    </div>
+
+    <div class="logos-wrapper" style="width: 100%; overflow: hidden; display: flex;">
+        <div class="logos-track">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Angela%20(1).svg" alt="Angela" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/BTG.svg" alt="BTG Pactual" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Cresol.svg" alt="Cresol" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Jesu%20(1).svg" alt="Jesu" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Pisicicultura.svg" alt="Piscicultura" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/PoloSul.svg" alt="PoloSul" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Santander.svg" alt="Santander" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Sicredi.svg" alt="Sicredi" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Ton%20Rover%20(1).svg" alt="TonRover" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Indra.svg" alt="Indra" class="logo-parceiro-mov">
+
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Angela%20(1).svg" alt="Angela" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/BTG.svg" alt="BTG Pactual" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Cresol.svg" alt="Cresol" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Jesu%20(1).svg" alt="Jesu" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Pisicicultura.svg" alt="Piscicultura" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/PoloSul.svg" alt="PoloSul" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Santander.svg" alt="Santander" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Sicredi.svg" alt="Sicredi" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Ton%20Rover%20(1).svg" alt="TonRover" class="logo-parceiro-mov">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Clientes%20e%20Parceiros/Indra.svg" alt="Indra" class="logo-parceiro-mov">
+        </div>
     </div>
 </section>
 
-<section id="fundador" class="section">
-    <div class="fundador-texto">
-        <h2>A Estratégia por trás da Prosperar</h2>
-        <p>Como fundador, acredito que o BPO Financeiro não é apenas sobre números, mas sobre liberdade para o empresário...</p>
-        <blockquote>"Sua gestão financeira deve ser o motor, não o freio do seu negócio."</blockquote>
-    </div>
-    <div class="fundador-foto">
-        <img src="seu-rosto-profissional.png" alt="Fundador da Prosperar">
-    </div>
-</section>
+<style>
+    /* Estilo das imagens no carrossel */
+    .logo-parceiro-mov {
+        height: 100px; /* Tamanho aumentado conforme pedido */
+        width: auto;
+        margin: 0 45px; /* Espaçamento entre elas */
+        flex-shrink: 0;
+        filter: grayscale(0%) brightness(1.5);
+        opacity: 0.7;
+        transition: all 0.4s ease;
+    }
 
-    </body>
+    .logo-parceiro-mov:hover {
+        filter: grayscale(0%) brightness(1);
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    /* Animação de movimento infinito */
+    .logos-track {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        animation: scrollInfinite 35s linear infinite;
+    }
+
+    @keyframes scrollInfinite {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } /* Move exatamente metade da largura total */
+    }
+
+    /* Pausa ao passar o mouse */
+    .logos-wrapper:hover .logos-track {
+        animation-play-state: paused;
+    }
+
+    /* Ajuste para mobile */
+    @media (max-width: 768px) {
+        .logo-parceiro-mov {
+            height: 60px;
+            margin: 0 25px;
+        }
+    }
+
+</style>
+
+    <section id="blog" class="section-blog">
+        <div class="header-servicos">
+            <span class="tag-gold">Conhecimento</span>
+            <h2>Insights Financeiros</h2>
+        </div>
+        <div class="blog-container">
+            <article class="blog-card">
+                <div class="blog-thumb" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="blog-content">
+                    <h3>O impacto da IA na auditoria financeira em 2026</h3>
+                    <p>Descubra como a tecnologia está antecipando falhas e otimizando lucros através da auditoria preditiva.</p>
+                    <a href="#" target="_blank" class="read-more">Ler publicação <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </article>
+
+            <div class="blog-footer">
+                <a href="#" target="_blank" class="btn-outline-gold">Ver todas as publicações</a>
+            </div>
+        </div>
+    </section>
+
+<footer id="footer" style="padding: 40px 0 20px; background-color: #0E1A26; color: #EDE6D8;">
+    <div class="footer-container" style="max-width: 750px; margin: 0 auto; padding: 0 40px;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Prosperar%20Logo%20Fundo%20transparente.svg" 
+                     alt="Prosperar BPO" 
+                     style="height: 220px; width: auto; margin-bottom: -45px;">
+                
+                <p style="margin: 0; padding-top: 5px;">
+                    <a href="privacidade.html" style="color: #D4B77A; text-decoration: none; font-weight: bold; font-size: 0.85rem;">Política de Privacidade</a>
+                </p>
+            </div>
+
+            <div class="footer-info" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #EDE6D8; text-align: left;">
+                <p style="margin: 0; font-weight: bold; color: #D4B77A;">Prosperar BPO Financeiro e Gestão Empresarial</p>
+                <p style="margin: 0;">Rua Peru, 1213, Andar 2, Sala 3, Luther King</p>
+                <p style="margin: 0;">Francisco Beltrão/PR — CEP: 85.605-470</p>
+                <p style="margin: 0;">CNPJ: 62.343.522/0001-43</p>
+                <p style="margin: 0;">Telefone: (46) 99113-1128</p>
+            </div>
+        </div>
+
+        <div class="selos-footer-central" style="display: flex; justify-content: center; gap: 25px; margin: 30px 0 20px; padding-top: 20px; border-top: 1px solid rgba(237, 230, 216, 0.1);">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Selo%20LGPD.png" alt="Selo LGPD" style="height: 45px; opacity: 0.9;">
+            <img src="https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Selo%20ESG.png" alt="Selo ESG" style="height: 45px; opacity: 0.9;">
+        </div>
+
+        <div style="text-align: center; font-size: 0.75rem; opacity: 0.6;">
+            <p>© 2026 Prosperar BPO Financeiro. Todos os direitos reservados.</p>
+        </div>
+
+    </div>
+
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 30px;">
+    
+    <div style="display: flex; gap: 25px; justify-content: center; margin-top: 10px;">
+        <a href="https://www.linkedin.com/company/prosperar-bpo-financeiro" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" style="color: #D4B77A; height: 24px; filter: invert 87%">
+        </a>
+        <a href="https://www.instagram.com/prosperar_bpo_financeiro/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" style="color: #D4B77A;height: 24px; filter: invert 87%">
+        </a>
+        <a href="https://www.youtube.com/@ProsperarBPOFinanceiro-i8h" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="color: #D4B77A; height: 24px; filter: invert 87%">
+        </a>
+    </div>
+</div>
+
+</footer>
+
+<a href="https://wa.me/5546991131128?text=Olá! Gostaria de entender como a Prosperar pode ajudar na gestão financeira da minha empresa." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip-whatsapp">Fale com um Especialista</span>
+    </a>
+
+</body>
 </html>

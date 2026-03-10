@@ -1,16 +1,19 @@
-/* Configurações Globais */
+/* =========================================
+   CONFIGURAÇÕES GLOBAIS E PALETA
+   ========================================= */
 :root {
     --navy: #0E1A26;
     --gold: #B89C63;
     --champagne: #D4B77A;
     --off-white: #EDE6D8;
+    --dark-navy: #08111a;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth; /* Faz a rolagem suave que você pediu */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -18,33 +21,50 @@ body {
     background-color: var(--navy);
     color: var(--off-white);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Menu de Navegação */
+/* =========================================
+   NAVEGAÇÃO (HEADER)
+   ========================================= */
 #navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 0 5%;
+    height: 100px;
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(14, 26, 38, 0.95);
+    background: rgba(14, 26, 38, 0.98);
     z-index: 1000;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid rgba(184, 156, 99, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.logo-img {
+    height: 85px;
+    width: auto;
+    display: block;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
 }
 
 #navbar ul {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 #navbar ul li a {
     color: var(--off-white);
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 20px; /* Reduzi de 30px para 20px para caber os novos itens */
     font-weight: bold;
     transition: 0.3s;
+    font-size: 0.85rem; /* Reduzi levemente a fonte (de 0.9 para 0.85) para manter o respiro */
+    text-transform: uppercase; /* Opcional: deixa o menu com um ar mais corporativo */
+    letter-spacing: 1px;
 }
 
 #navbar ul li a:hover {
@@ -56,86 +76,134 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     color: var(--navy) !important;
+    transition: 0.3s;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
 }
 
-/* Seções */
+.btn-gold:hover {
+    background-color: var(--champagne);
+    transform: scale(1.05);
+}
+
+/* =========================================
+   SEÇÕES GERAIS E HERO (HOME) - AJUSTADO
+   ========================================= */
 .section {
     min-height: 100vh;
-    padding: 100px 10% 20px;
+    padding: 140px 10% 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Hero Section (Sua Foto e Frase) */
 #home {
-    background: linear-gradient(to right, #0e1a26, #162a3d);
+    background: radial-gradient(circle at top right, #162a3d, #0E1A26);
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     color: var(--champagne);
     margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .hero-image img {
-    width: 400px;
-    border-radius: 20px;
-    border: 3px solid var(--gold);
-    box-shadow: 0 0 20px rgba(184, 156, 99, 0.3);
+    width: 450px; /* Aumentado levemente para compensar a retirada da borda */
+    border-radius: 0; /* Removido arredondamento de borda */
+    border: none;     /* Removida a borda dourada */
+    box-shadow: none; /* Removida a sombra quadrada */
+    
+    /* Aplica sombra apenas no contorno do logo transparente */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    
+    transition: transform 0.3s ease;
 }
 
-/* Responsividade básica */
-@media (max-width: 768px) {
-    .section { flex-direction: column; text-align: center; }
-    .hero-image img { width: 100%; margin-top: 50px; }
+.hero-image img:hover {
+    transform: scale(1.02); /* Leve efeito de zoom ao passar o mouse */
 }
 
-/* Seção de Prêmios (Faixa de Autoridade) */
+/* =========================================
+   FAIXA DE AUTORIDADE (PRÊMIOS)
+   ========================================= */
 #premios {
     background-color: var(--off-white);
-    padding: 40px 0;
+    padding: 80px 0;
     text-align: center;
 }
 
 #premios h3 {
     color: var(--navy);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-    opacity: 0.8;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    font-weight: 700;
 }
 
 .logos-grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
     flex-wrap: wrap;
-    filter: grayscale(100%); /* Deixa os logos cinzas para um ar mais elegante */
+    filter: grayscale(100%);
     transition: 0.5s;
+    padding: 0 5%;
 }
 
 .logos-grid img {
-    height: 60px;
-    opacity: 0.7;
+    height: 80px;
+    opacity: 0.6;
+    transition: 0.4s;
 }
 
 .logos-grid:hover {
-    filter: grayscale(0%); /* Mostra as cores originais ao passar o mouse */
+    filter: grayscale(0%);
 }
 
-/* Seção Fundador */
+/* =========================================
+   SEÇÃO FUNDADOR
+   ========================================= */
 #fundador {
-    background-color: var(--navy);
-    border-top: 1px solid rgba(184, 156, 99, 0.2);
+    background-color: var(--dark-navy);
+}
+
+.tag-gold {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .fundador-texto h2 {
     color: var(--gold);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 20px;
+}
+
+.fundador-infos {
+    display: flex;
+    gap: 40px;
+    margin: 30px 0;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.info-item span {
+    font-size: 0.8rem;
+    color: var(--off-white);
+    opacity: 0.6;
 }
 
 blockquote {
@@ -143,6 +211,502 @@ blockquote {
     padding-left: 20px;
     margin-top: 30px;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--champagne);
+    max-width: 500px;
+}
+
+.fundador-foto img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    border-right: 10px solid var(--gold);
+    border-bottom: 10px solid var(--gold);
+    box-shadow: 25px 25px 50px rgba(0,0,0,0.6);
+}
+
+/* =========================================
+   SEÇÃO PARCEIROS E CLIENTES (REFINO FINAL)
+   ========================================= */
+.section-parceiros {
+    padding: 100px 10%;
+    background-color: var(--off-white); 
+    text-align: center;
+}
+
+/* Alterando a cor das escritas para Azul para destacar no fundo claro */
+.section-parceiros .tag-gold {
+    color: var(--navy); /* "ECOSSISTEMA" em azul */
+}
+
+.section-parceiros h2 {
+    color: var(--navy); /* "Parceiros e Clientes" em azul */
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.section-parceiros p {
+    color: var(--navy); /* Frase de apoio em azul */
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.parceiros-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; /* Aumentado o espaçamento entre eles */
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.logo-parceiro {
+    height: 100px; /* Aumentado de 60px para 75px para maior impacto */
+    width: auto;
+    max-width: 200px; /* Garante que logos horizontais não fiquem gigantes */
+    object-fit: contain;
+    opacity: 1;
+    filter: none;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-parceiro:hover {
+    transform: scale(1.15); /* Aumenta levemente ao passar o mouse */
+}
+
+/* Ajuste de Responsividade para não quebrar no celular com logos maiores */
+@media (max-width: 992px) {
+    .parceiros-grid {
+        gap: 40px;
+    }
+    .logo-parceiro {
+        height: 55px;
+    }
+    .section-parceiros h2 {
+        font-size: 2.2rem;
+    }
+}
+
+.parceiros-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.logo-parceiro {
+    height: 60px; /* Aumentado para melhor visibilidade */
+    width: auto;
+    opacity: 1; /* Removida a transparência */
+    filter: none; /* Removido o filtro preto e branco */
+    transition: 0.4s;
+}
+
+.logo-parceiro:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   RESPONSIVIDADE (AJUSTE PARCEIROS)
+   ========================================= */
+@media (max-width: 992px) {
+    /* ... mantenha suas outras regras ... */
+
+    .parceiros-grid { 
+        gap: 40px; 
+    }
+
+    .logo-parceiro { 
+        height: 45px; /* Tamanho mobile ajustado */
+    }
+}
+
+.logo-parceiro:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* =========================================
+   SEÇÃO SERVIÇOS
+   ========================================= */
+.section-servicos {
+    padding: 100px 10%;
+    background-color: var(--navy);
+}
+
+.header-servicos {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.header-servicos h2 {
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(184, 156, 99, 0.1);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    border-color: var(--gold);
+    background: rgba(184, 156, 99, 0.05);
+}
+
+.icon-gold {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* =========================================
+   SEÇÃO BLOG (NOVO)
+   ========================================= */
+.section-blog {
+    padding: 100px 10%;
+    background-color: var(--navy);
+}
+
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.blog-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(184, 156, 99, 0.1);
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    max-width: 900px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-card:hover {
+    border-color: var(--gold);
+    background: rgba(184, 156, 99, 0.03);
+}
+
+.blog-thumb {
+    width: 35%;
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+}
+
+.blog-content {
+    padding: 30px;
+    width: 65%;
+}
+
+.blog-content h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.blog-content p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    color: var(--champagne);
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.blog-footer {
+    margin-top: 20px;
+}
+
+.btn-outline-gold {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline-gold:hover {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* =========================================
+   ÁREA DO CLIENTE
+   ========================================= */
+#pagamento input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(184, 156, 99, 0.3);
+    background: var(--navy);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* =========================================
+   RODAPÉ (FOOTER)
+   ========================================= */
+#footer {
+    background-color: var(--dark-navy);
+    padding: 60px 10% 40px;
+    border-top: 1px solid rgba(184, 156, 99, 0.2);
+}
+
+.footer-container {
+    text-align: center;
+    color: var(--off-white);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-img-footer {
+    height: 180px;
+    width: auto;
+    margin: 0 auto 30px;
+    display: block;
+}
+
+.footer-info {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.6;
+    margin-top: 20px;
+}
+
+.selos-conformidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.img-selo {
+    height: 70px;
+    width: auto;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+}
+
+.img-selo:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+    font-size: 0.65rem;
+    opacity: 0.3;
+}
+
+/* =========================================
+   RESPONSIVIDADE (UNIFICADA)
+   ========================================= */
+@media (max-width: 992px) {
+    #navbar { height: 75px; }
+    .logo-img { height: 55px; }
+    #navbar ul { display: none; }
+
+    .section { 
+        flex-direction: column; 
+        text-align: center; 
+        padding-top: 120px; 
+    }
+
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-image img { width: 100%; max-width: 320px; margin-top: 40px; }
+
+    /* Blog Mobile */
+    .blog-card { flex-direction: column; }
+    .blog-thumb { width: 100%; min-height: 200px; }
+    .blog-content { width: 100%; }
+
+    /* Parceiros Mobile */
+    .parceiros-grid { gap: 30px; }
+
+    .selos-conformidade {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .img-selo { height: 60px; }
+    .footer-info { font-size: 0.75rem; }
+}
+
+/* =========================================
+   BOTÃO WHATSAPP FLUTUANTE
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    background-color: #20ba5a;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Tooltip (Legenda que aparece ao passar o mouse) */
+.tooltip-whatsapp {
+    position: absolute;
+    right: 75px;
+    background-color: var(--navy);
+    color: var(--gold);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    border: 1px solid var(--gold);
+}
+
+.whatsapp-float:hover .tooltip-whatsapp {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+    .tooltip-whatsapp {
+        display: none; /* Esconde a legenda no mobile para não poluir */
+    }
+}
+
+/* =========================================
+   ESTILO ESPECÍFICO DO CARD ERP
+   ========================================= */
+.card-erp {
+    border: 1px solid rgba(184, 156, 99, 0.4) !important; /* Borda um pouco mais visível */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list-servicos {
+    list-style: none;
+    margin: 20px 0;
+    text-align: left;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.list-servicos li {
+    margin-bottom: 8px;
+}
+
+.list-servicos i {
+    color: var(--gold);
+    margin-right: 8px;
+}
+
+/* Botão de Login Estilizado */
+.btn-erp-login {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-erp-login:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-3px);
+}
+
+/* Link de Privacidade no Rodapé */
+.link-privacidade {
+    color: var(--off-white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.link-privacidade:hover {
+    opacity: 1;
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+}
+
+/* Estilização do Mapa */
+.mapa-link {
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.mapa-link:hover .img-mapa-preview {
+    filter: brightness(1.1);
+    transform: translateY(-3px);
+}
+
+.img-mapa-preview {
+    transition: 0.3s ease;
 }
