@@ -710,3 +710,32 @@ blockquote {
 .img-mapa-preview {
     transition: 0.3s ease;
 }
+
+/* Marca d'água sutil ao fundo */
+.bg-watermark {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-watermark::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Tamanho grande para ser sutil */
+    height: 80%;
+    background-image: url('https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Prosperar%20Logo%20Fundo%20transparente.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.04; /* Ajuste aqui: 0.04 é 4% de visibilidade */
+    z-index: 0;
+    pointer-events: none; /* Garante que o usuário consiga clicar nos botões por cima */
+}
+
+/* Garante que o conteúdo fique acima da marca d'água */
+.bg-watermark > * {
+    position: relative;
+    z-index: 1;
+}
