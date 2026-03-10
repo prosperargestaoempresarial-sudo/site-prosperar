@@ -46,17 +46,70 @@
 </nav>
 
 <style>
-    .nav-link { color: #EDE6D8; text-decoration: none; transition: 0.3s; }
-    .nav-link:hover { color: #D4B77A; }
+    /* Grade Estilo Planilha */
+    .excel-grid {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(212, 183, 122, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212, 183, 122, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;
+        z-index: 1;
+    }
+
+    /* Brilho Corrente nas Linhas (Esquerda para Direita) */
+    @keyframes line-flow {
+        0% { transform: translateX(-100%); opacity: 0; }
+        50% { opacity: 0.3; }
+        100% { transform: translateX(100%); opacity: 0; }
+    }
+    .flow-line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #D4B77A, transparent);
+        animation: line-flow 6s infinite linear;
+        z-index: 2;
+    }
+
+    /* Animação do Desenho do Gráfico */
+    @keyframes draw-graph {
+        from { stroke-dashoffset: 1000; }
+        to { stroke-dashoffset: 0; }
+    }
+
+    .graph-svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
 </style>
 
 <section id="home" style="height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0E1A26;">
     
-    <div style="position: absolute; right: -10%; top: 10%; width: 60%; height: 80%; background-image: url('https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Prosperar%20Logo%20Fundo%20transparente.svg'); background-repeat: no-repeat; background-position: right center; background-size: contain; opacity: 0.04; z-index: 1; pointer-events: none;"></div>
+    <div class="excel-grid"></div>
 
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(14, 26, 38, 0) 0%, #0E1A26 90%); z-index: 2;"></div>
+    <div class="flow-line" style="top: 30%; animation-delay: 0s;"></div>
+    <div class="flow-line" style="top: 70%; animation-delay: 3s; opacity: 0.1;"></div>
 
-    <div style="position: relative; z-index: 3; max-width: 900px; text-align: center; padding: 0 20px;">
+    <svg class="graph-svg" preserveAspectRatio="none" viewBox="0 0 1000 500">
+        <path d="M0,450 L50,420 L100,440 L200,380 L300,410 L450,320 L600,350 L750,220 L850,250 L1000,120" 
+              fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="1000" 
+              style="opacity: 0.4; animation: draw-graph 10s infinite linear;" />
+        
+        <path d="M0,80 L120,150 L250,110 L400,220 L550,180 L700,320 L820,290 L1000,480" 
+              fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="1000" 
+              style="opacity: 0.3; animation: draw-graph 14s infinite linear; animation-delay: 2s;" />
+    </svg>
+
+    <div style="position: absolute; right: -10%; top: 50%; width: 60%; height: 80%; transform: translateY(-50%); background-image: url('https://akgdoohrwjiuxxjavepq.supabase.co/storage/v1/object/public/imagens-site/Prosperar%20Logo%20Fundo%20transparente.svg'); background-repeat: no-repeat; background-position: center right; background-size: contain; opacity: 0.025; z-index: 3; pointer-events: none;"></div>
+
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(14, 26, 38, 0.4); z-index: 4;"></div>
+
+    <div style="position: relative; z-index: 5; max-width: 900px; text-align: center; padding: 0 20px;">
         <span style="color: #D4B77A; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: bold; display: block; margin-bottom: 20px;">Gestão de Alta Performance</span>
         
         <h1 style="color: #EDE6D8; font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px;">
