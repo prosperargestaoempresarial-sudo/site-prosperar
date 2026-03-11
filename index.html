@@ -405,28 +405,28 @@
         
         <div style="text-align: center; margin-bottom: 50px;">
             <span style="color: #D4B77A; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: bold;">Dashboard de Inteligência</span>
-            <h2 style="color: #EDE6D8; font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin: 15px 0;">Banco <span style="color: #D4B77A;">Oficial & B3.</span></h2>
+            <h2 style="color: #EDE6D8; font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin: 15px 0;">Indicadores <span style="color: #D4B77A;">Econômicos & Mercado Financeiro.</span></h2>
             <p style="color: #EDE6D8; opacity: 0.6; font-size: 0.95rem;">Acompanhamento em tempo real dos indicadores que movem o custo do capital.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-bottom: 30px;">
             
             <div style="background: rgba(212, 183, 122, 0.05); border: 1px solid rgba(212, 183, 122, 0.2); padding: 25px; border-radius: 4px; text-align: center;">
-                <span style="color: #D4B77A; font-size: 0.7rem; text-transform: uppercase; font-weight: bold;">Selic Meta</span>
+                <span style="color: #D4B77A; font-size: 0.7rem; text-transform: uppercase; font-weight: bold;">Selic Atual</span>
                 <div id="selic-v" style="color: #EDE6D8; font-size: 2rem; font-weight: bold; margin: 10px 0;">...</div>
-                <p style="color: #D4B77A; font-size: 0.6rem; font-weight: bold;">COPOM</p>
+                <p style="color: #D4B77A; font-size: 0.6rem; font-weight: bold; line-height: 1.4;">PRÓXIMA REUNIÃO COPOM:<br>17 e 18 DE MARÇO</p>
             </div>
 
             <div style="background: rgba(212, 183, 122, 0.05); border: 1px solid rgba(212, 183, 122, 0.2); padding: 25px; border-radius: 4px; text-align: center;">
-                <span style="color: #D4B77A; font-size: 0.7rem; text-transform: uppercase; font-weight: bold;">CDI Diário</span>
-                <div id="cdi-v" style="color: #EDE6D8; font-size: 2rem; font-weight: bold; margin: 10px 0;">...</div>
-                <p style="color: #D4B77A; font-size: 0.6rem; font-weight: bold;">MERCADO INTERBANCÁRIO</p>
+                <span style="color: #D4B77A; font-size: 0.7rem; text-transform: uppercase; font-weight: bold;">IPCA Acum. 12m</span>
+                <div id="ipca-12m-v" style="color: #EDE6D8; font-size: 2rem; font-weight: bold; margin: 10px 0;">...</div>
+                <p style="color: #D4B77A; font-size: 0.6rem; font-weight: bold;">INFLAÇÃO ACUMULADA</p>
             </div>
 
             <div style="background: rgba(212, 183, 122, 0.05); border: 1px solid rgba(212, 183, 122, 0.2); padding: 25px; border-radius: 4px; text-align: center;">
                 <span style="color: #D4B77A; font-size: 0.7rem; text-transform: uppercase; font-weight: bold;">IPCA (Mensal)</span>
                 <div id="ipca-v" style="color: #EDE6D8; font-size: 2rem; font-weight: bold; margin: 10px 0;">...</div>
-                <p style="color: #D4B77A; font-size: 0.6rem; font-weight: bold;">INFLAÇÃO OFICIAL</p>
+                <p style="color: #D4B77A; font-size: 0.6rem; font-weight: bold;">INFLAÇÃO MENSAL</p>
             </div>
 
             <div style="background: rgba(212, 183, 122, 0.05); border: 1px solid rgba(212, 183, 122, 0.2); padding: 25px; border-radius: 4px; text-align: center;">
@@ -447,21 +447,17 @@
                   "showChart": false,
                   "locale": "br",
                   "width": "100%",
-                  "height": "500",
+                  "height": "315",
                   "isTransparent": true,
                   "showSymbolLogo": true,
                   "tabs": [
                     {
-                      "title": "Mercado Financeiro B3",
+                      "title": "Mercado Financeiro",
                       "symbols": [
-                        { "s": "INDEX:IBOV", "d": "IBOVESPA - Mercado Geral" },
-                        { "s": "FX_IDC:USDBRL", "d": "Dólar Comercial (Tempo Real)" },
-                        { "s": "BMFBOVESPA:IFIX", "d": "IFIX - Imobiliário (FIIs)" },
-                        { "s": "BMFBOVESPA:IFNC", "d": "IFNC - Setor Financeiro (Bancos)" },
-                        { "s": "BMFBOVESPA:SMLL", "d": "SMLL - Pequenas Empresas" },
-                        { "s": "BMFBOVESPA:IDIV", "d": "IDIV - Melhores Dividendos" },
-                        { "s": "BMFBOVESPA:IMAT", "d": "IMAT - Materiais Básicos (Commodities)" },
-                        { "s": "BMFBOVESPA:ICON", "d": "ICON - Consumo e Varejo" }
+                        { "s": "BMFBOVESPA:IBOV", "d": "Ibovespa" },
+                        { "s": "BMFBOVESPA:IFNC", "d": "IFNC" },
+                        { "s": "FX_IDC:USDBRL", "d": "USD/BRL" },
+                        { "s": "FX_IDC:EURBRL", "d": "EUR/BRL" }
                       ]
                     }
                   ]
@@ -475,18 +471,17 @@
 <script>
 async function carregarBCB() {
     try {
-        // Selic (Série 432)
+        // Selic Meta Atual (Série 432)
         const rS = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json');
         const dS = await rS.json();
         document.getElementById('selic-v').innerText = parseFloat(dS[0].valor).toFixed(2).replace('.', ',') + '%';
 
-        // CDI (Série 12) - Puxa o valor da taxa DI anualizada
-        const rC = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/1?formato=json');
-        const dC = await rC.json();
-        // Nota: A série 12 é diária, geralmente convertemos para anual para o cliente entender
-        document.getElementById('cdi-v').innerText = '10,65%'; // Fallback estratégico ou cálculo de acumulação
+        // IPCA Acumulado 12 meses (Série 13522)
+        const rI12 = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados/ultimos/1?formato=json');
+        const dI12 = await rI12.json();
+        document.getElementById('ipca-12m-v').innerText = parseFloat(dI12[0].valor).toFixed(2).replace('.', ',') + '%';
 
-        // IPCA (Série 433)
+        // IPCA Mensal (Série 433)
         const rI = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json');
         const dI = await rI.json();
         document.getElementById('ipca-v').innerText = parseFloat(dI[0].valor).toFixed(2).replace('.', ',') + '%';
@@ -495,7 +490,9 @@ async function carregarBCB() {
         const rP = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados/ultimos/1?formato=json');
         const dP = await rP.json();
         document.getElementById('ptax-v').innerText = 'R$ ' + parseFloat(dP[0].valor).toFixed(2).replace('.', ',');
-    } catch (e) { console.error(e); }
+    } catch (e) { 
+        console.error("Falha ao buscar dados do BCB:", e); 
+    }
 }
 carregarBCB();
 </script>
