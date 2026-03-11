@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosperar BPO - Hub de Inteligência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #0B141D; margin: 0; font-family: 'Montserrat', sans-serif; color: #EDE6D8; }
+        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+        
+        main { max-width: 800px; margin: 0 auto; padding: 120px 20px; background: #0B141D; }
+        
+        header { margin-bottom: 50px; }
+        
+        .conteudo-texto { line-height: 1.8; font-size: 1.1rem; opacity: 0.9; }
+        .conteudo-texto img { max-width: 100%; border-radius: 4px; margin: 20px 0; border: 1px solid rgba(212, 183, 122, 0.2); }
+        .conteudo-texto h3 { color: #D4B77A; margin-top: 30px; }
+        .conteudo-texto ul { padding-left: 20px; }
+        .conteudo-texto li { margin-bottom: 10px; }
+        
+        .card-lista { 
+            margin-bottom: 30px; 
+            border: 1px solid rgba(212, 183, 122, 0.1); 
+            padding: 25px; 
+            border-radius: 4px; 
+            transition: 0.3s;
+            background: rgba(212, 183, 122, 0.02);
+        }
+        .card-lista:hover { border-color: #D4B77A; background: rgba(212, 183, 122, 0.05); }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        <span id="post-meta" style="color: #D4B77A; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">
+            Carregando...
+        </span>
+        <h1 id="post-titulo" style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin: 20px 0; line-height: 1.2; color: #EDE6D8;">
+            ...
+        </h1>
+        <p id="post-autor" style="opacity: 0.6; font-size: 1.2rem; font-style: italic; color: #EDE6D8;">
+            Prosperar BPO Financeiro
+        </p>
+    </header>
+
+    <div id="post-conteudo" class="conteudo-texto">
+        <p style="color: #D4B77A;">Conectando ao banco de dados...</p>
+    </div>
+
+    <div style="margin-top: 60px; border-top: 1px solid rgba(212, 183, 122, 0.2); padding-top: 30px;">
+        <a href="index.html#blog" style="color: #D4B77A; text-decoration: none; font-weight: bold; transition: 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            ← Voltar para o Site
+        </a>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    // CREDENCIAIS DO SUPABASE
+    const SUPABASE_URL = 'https://akgdoohrwjiuxxjavepq.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_pi1ZCVTHl-hU8vlpGNF9lg_FqLcPJzs';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    async function carregarPagina() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('p');
+
+        // MODO 1: LISTAGEM DE TODOS OS ARTIGOS
+        if (!slug) {
+            const { data: posts, error } = await supabaseClient
+                .from('posts')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error("Erro ao buscar posts:", error);
+                return;
+            }
+
+            document.getElementById('post-titulo').innerText = "Hub de Inteligência";
+            document.getElementById('post-meta').innerText = "Conteúdo Estratégico";
+            document.getElementById('post-autor').style.display = 'none';
+
+            if (posts && posts.length > 0) {
+                let listaHtml = '';
+                posts.forEach(post => {
+                    listaHtml += `
+                        <div class="card-lista">
+                            <span style="color: #D4B77A; font-size: 0.7rem; font-weight: bold;">${post.categoria || 'FINANÇAS'}</span>
+                            <h3 style="margin: 10px 0;"><a href="artigos.html?p=${post.slug}" style="color: #EDE6D8; text-decoration: none;">${post.titulo}</a></h3>
+                            <p style="color: #EDE6D8; opacity: 0.6; font-size: 0.95rem; line-height: 1.6;">${post.resumo || ''}</p>
+                            <a href="artigos.html?p=${post.slug}" style="color: #D4B77A; text-decoration: none; font-size: 0.8rem; font-weight: bold;">LER ARTIGO +</a>
+                        </div>`;
+                });
+                document.getElementById('post-conteudo').innerHTML = listaHtml;
+            } else {
+                document.getElementById('post-conteudo').innerHTML = "<p>Nenhum artigo publicado ainda.</p>";
+            }
+            return;
+        }
+
+        // MODO 2: CARREGAR ARTIGO ESPECÍFICO
+        try {
+            const { data: post, error } = await supabaseClient
+                .from('posts')
+                .select('*')
+                .eq('slug', slug)
+                .single();
+
+            if (error || !post) {
+                document.getElementById('post-titulo').innerText = "Artigo não encontrado";
+                document.getElementById('post-conteudo').innerHTML = "<p>O conteúdo solicitado não existe ou foi movido.</p>";
+                return;
+            }
+
+            // Injeta os dados do artigo
+            document.title = `${post.titulo} | Prosperar BPO`;
+            document.getElementById('post-titulo').innerText = post.titulo;
+            document.getElementById('post-meta').innerText = `${post.categoria || 'Artigo'} • ${new Date(post.created_at).toLocaleDateString('pt-BR')}`;
+            document.getElementById('post-conteudo').innerHTML = post.conteudo;
+            
+            if (post.autor) {
+                document.getElementById('post-autor').innerText = `Por ${post.autor}, CEO da Prosperar BPO.`;
+            }
+
+        } catch (err) {
+            console.error("Erro de conexão:", err);
+            document.getElementById('post-conteudo').innerHTML = "<p>Erro ao carregar o conteúdo. Verifique sua conexão.</p>";
+        }
+    }
+
+    carregarPagina();
+</script>
+
+</body>
+</html>
