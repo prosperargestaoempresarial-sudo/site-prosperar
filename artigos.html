@@ -109,9 +109,15 @@
             if (posts && posts.length > 0) {
                 let listaHtml = '';
                 posts.forEach(post => {
+                    const dataPublicacao = post.created_at
+                        ? new Date(post.created_at).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })
+                        : '';
                     listaHtml += `
                         <div class="card-lista">
-                            <span style="color: #D4B77A; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;">${post.categoria || 'FINANÇAS'}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 4px;">
+                                <span style="color: #D4B77A; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;">${post.categoria || 'FINANÇAS'}</span>
+                                ${dataPublicacao ? `<span style="color: #EDE6D8; opacity: 0.4; font-size: 0.7rem; letter-spacing: 0.5px;">${dataPublicacao}</span>` : ''}
+                            </div>
                             <h3 style="margin: 10px 0;"><a href="artigos.html?p=${post.slug}" style="color: #EDE6D8; text-decoration: none;">${post.titulo}</a></h3>
                             <p style="color: #EDE6D8; opacity: 0.6; font-size: 0.95rem; line-height: 1.6;">${post.resumo || ''}</p>
                             <a href="artigos.html?p=${post.slug}" style="color: #D4B77A; text-decoration: none; font-size: 0.8rem; font-weight: bold;">LER ARTIGO +</a>
